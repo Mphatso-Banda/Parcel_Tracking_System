@@ -20,4 +20,7 @@
 
 5. Enjoy Using the system to manage and truck customers.
 
+*In case you are having problems with authentication go to /register to get yourself registered for the system*
+*This route has deliberately been left unprotected for the sake of testing*
+
 *GROUP 9*
