@@ -29,6 +29,9 @@ class CreateParcelsTable extends Migration
             $table->integer('status')->nullable()->default(0);
             $table->integer('user_id');
             $table->timestamps();
+
+            $table->index(["branch_id_t"], 'fk_branches_parcel_idtx');
+            $table->index(["branch_id_f"], 'fk_branches_parcel_idfx');
         });
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Branch;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,7 +20,8 @@ class UserController extends Controller
         if(Auth::user()->hasRole('admin')){
 
             $user = User::all();
-        return view('Admin.staff_list', compact('user'));
+            $branch= Branch::all();
+        return view('Admin.staff_list', compact('user', 'branch'));
         }else{
         return view('Admin.index');
         }
@@ -34,7 +36,8 @@ class UserController extends Controller
     public function create()
     {
         //
-        return view('Admin/new_staff');
+        $branch= Branch::all();
+        return view('Admin/new_staff', compact('branch'));
     }
 
     /**

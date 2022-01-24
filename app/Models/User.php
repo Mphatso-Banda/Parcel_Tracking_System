@@ -21,7 +21,7 @@ class User extends Authenticatable
     use TwoFactorAuthenticatable;
 
 
-    public function Branch(){
+    public function branch(){
 
         return $this->belongsTo(Branch::class);
     }
@@ -35,6 +35,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'branch_id',
     ];
 
     /**

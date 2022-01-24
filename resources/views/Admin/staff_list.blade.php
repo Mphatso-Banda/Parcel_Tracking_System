@@ -42,6 +42,7 @@
 						<th class="text-center">#</th>
 						<th>Staff</th>
 						<th>Email</th>
+						<th>Branch</th>
 						
 						<th>Action</th>
 					</tr>
@@ -57,6 +58,7 @@
 						<td class="text-center">{{$count}}</td>
 						<td><b>{{$users->name}}</b></td>
 						<td><b>{{$users->email}}</b></td>
+						<td><b>{{$users->branch->building}} {{$users->branch->city}}</b></td>
 						
 						<td class="text-center">
 		                    <div class="btn-group">

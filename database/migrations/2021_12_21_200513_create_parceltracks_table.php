@@ -18,6 +18,8 @@ class CreateParceltracksTable extends Migration
             $table->integer('status');
             $table->integer('parcel_id')->constrained();
             $table->timestamps();
+
+            $table->index(["parcel_id"], 'fk_parcels_parcel_idx');
         });
     }
 

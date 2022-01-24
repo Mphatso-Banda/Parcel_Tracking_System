@@ -12,12 +12,12 @@ class Branch extends Model
     protected $table ='branches';
    protected $fillable = ['building','city','postal_code','contact'];
 
-    public function User(){
+    public function users(){
 
         return $this->hasMany(User::class);
     }
     
-    public function Parcel(){
+    public function parcel(){
 
         return $this->hasMany(Parcel::class);
     }

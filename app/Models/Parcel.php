@@ -22,12 +22,12 @@ class Parcel extends Model
    'weight',
    'price' ];
 
-   public function Branch(){
+   public function branch(){
 
     return $this->belongsToMany(Branch::class);
 }
 
-public function Parceltrack(){
+public function parceltrack(){
 
     return $this->hasMany(Parceltrack::class);
 }

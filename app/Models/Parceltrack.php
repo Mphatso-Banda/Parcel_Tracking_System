@@ -9,7 +9,7 @@ class Parceltrack extends Model
 {
     use HasFactory;
 
-    public function Parcel(){
+    public function parcel(){
 
         return $this->belongsToOne(Parcel::class);
     }

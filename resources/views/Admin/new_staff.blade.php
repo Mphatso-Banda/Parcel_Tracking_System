@@ -49,6 +49,17 @@
                 <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
             </div>
 
+            <div class="mt-4">
+                <x-jet-label for="branch_id" value="{{ __('Branch') }}" />
+                <select name="branch_id" class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring
+                focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
+                    @foreach($branch as $branches)
+                    <option value="{{$branches->id}}">{{$branches->building}}</option>
+        
+                    @endforeach
+                </select>
+            </div>
+
             <!-- Select Option Role Type -->
             <div>
                 <x-jet-label for="role_id" value="{{ __('Register as:') }}" />

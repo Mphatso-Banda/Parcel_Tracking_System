@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 19, 2022 at 11:39 PM
+-- Generation Time: Jan 24, 2022 at 01:29 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -42,8 +42,7 @@ CREATE TABLE `branches` (
 --
 
 INSERT INTO `branches` (`id`, `building`, `city`, `postal_code`, `contact`, `created_at`, `updated_at`) VALUES
-(1, 'Chigumula', 'Blantyre', '2345', 888377177, '2022-01-06 12:08:20', '2022-01-06 12:08:20'),
-(2, 'Chayamba House', 'Lilongwe', '44352', 999388372, '2022-01-06 22:23:54', '2022-01-06 22:23:54');
+(1, 'Chayamba', 'Blantyre', '265', 888377177, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -87,7 +86,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (7, '2021_12_21_195754_create_branches_table', 1),
 (8, '2021_12_21_200306_create_parcels_table', 1),
 (9, '2021_12_21_200513_create_parceltracks_table', 1),
-(10, '2022_01_06_103530_laratrust_setup_tables', 2);
+(10, '2022_01_06_103530_laratrust_setup_tables', 1);
 
 -- --------------------------------------------------------
 
@@ -114,14 +113,6 @@ CREATE TABLE `parcels` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `parcels`
---
-
-INSERT INTO `parcels` (`id`, `referenceno`, `sendername`, `senderaddress`, `sendercontact`, `recipientaddress`, `recipientname`, `recipientcontact`, `branch_id_t`, `branch_id_f`, `weight`, `price`, `status`, `user_id`, `created_at`, `updated_at`) VALUES
-(1, 63494459, 'Mphatso Banda', 'Blantyre Escom House', '0994974783', 'Chigumula', 'Mayamiko Banda', '0888874019', 1, 1, 10, 20000, 3, 4, '2022-01-06 13:24:45', '2022-01-07 13:14:18'),
-(2, 96641308, 'Noel Kakhobwe', 'Chitakale', '098765432', 'Machinjiri Area 12', 'Faith Kassim', '09876543', 2, 1, 45, 10000, 0, 5, '2022-01-06 18:56:05', '2022-01-06 22:24:22');
-
 -- --------------------------------------------------------
 
 --
@@ -135,18 +126,6 @@ CREATE TABLE `parceltracks` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `parceltracks`
---
-
-INSERT INTO `parceltracks` (`id`, `status`, `parcel_id`, `created_at`, `updated_at`) VALUES
-(1, 0, 1, '2022-01-06 13:24:45', '2022-01-06 13:24:45'),
-(2, 1, 1, '2022-01-06 13:25:12', '2022-01-06 13:25:12'),
-(3, 2, 1, '2022-01-06 18:31:11', '2022-01-06 18:31:11'),
-(4, 0, 2, '2022-01-06 18:56:05', '2022-01-06 18:56:05'),
-(5, 0, 3, '2022-01-06 22:54:49', '2022-01-06 22:54:49'),
-(6, 3, 1, '2022-01-07 13:14:17', '2022-01-07 13:14:17');
 
 -- --------------------------------------------------------
 
@@ -180,16 +159,16 @@ CREATE TABLE `permissions` (
 --
 
 INSERT INTO `permissions` (`id`, `name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'users-create', 'Create Users', 'Create Users', '2022-01-06 08:51:10', '2022-01-06 08:51:10'),
-(2, 'users-read', 'Read Users', 'Read Users', '2022-01-06 08:51:10', '2022-01-06 08:51:10'),
-(3, 'users-update', 'Update Users', 'Update Users', '2022-01-06 08:51:11', '2022-01-06 08:51:11'),
-(4, 'users-delete', 'Delete Users', 'Delete Users', '2022-01-06 08:51:11', '2022-01-06 08:51:11'),
-(5, 'payments-create', 'Create Payments', 'Create Payments', '2022-01-06 08:51:11', '2022-01-06 08:51:11'),
-(6, 'payments-read', 'Read Payments', 'Read Payments', '2022-01-06 08:51:11', '2022-01-06 08:51:11'),
-(7, 'payments-update', 'Update Payments', 'Update Payments', '2022-01-06 08:51:11', '2022-01-06 08:51:11'),
-(8, 'payments-delete', 'Delete Payments', 'Delete Payments', '2022-01-06 08:51:11', '2022-01-06 08:51:11'),
-(9, 'profile-read', 'Read Profile', 'Read Profile', '2022-01-06 08:51:12', '2022-01-06 08:51:12'),
-(10, 'profile-update', 'Update Profile', 'Update Profile', '2022-01-06 08:51:12', '2022-01-06 08:51:12');
+(1, 'users-create', 'Create Users', 'Create Users', '2022-01-24 07:34:23', '2022-01-24 07:34:23'),
+(2, 'users-read', 'Read Users', 'Read Users', '2022-01-24 07:34:23', '2022-01-24 07:34:23'),
+(3, 'users-update', 'Update Users', 'Update Users', '2022-01-24 07:34:23', '2022-01-24 07:34:23'),
+(4, 'users-delete', 'Delete Users', 'Delete Users', '2022-01-24 07:34:23', '2022-01-24 07:34:23'),
+(5, 'payments-create', 'Create Payments', 'Create Payments', '2022-01-24 07:34:23', '2022-01-24 07:34:23'),
+(6, 'payments-read', 'Read Payments', 'Read Payments', '2022-01-24 07:34:23', '2022-01-24 07:34:23'),
+(7, 'payments-update', 'Update Payments', 'Update Payments', '2022-01-24 07:34:24', '2022-01-24 07:34:24'),
+(8, 'payments-delete', 'Delete Payments', 'Delete Payments', '2022-01-24 07:34:24', '2022-01-24 07:34:24'),
+(9, 'profile-read', 'Read Profile', 'Read Profile', '2022-01-24 07:34:24', '2022-01-24 07:34:24'),
+(10, 'profile-update', 'Update Profile', 'Update Profile', '2022-01-24 07:34:24', '2022-01-24 07:34:24');
 
 -- --------------------------------------------------------
 
@@ -274,8 +253,8 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id`, `name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'Admin', 'Admin', '2022-01-06 08:51:10', '2022-01-06 08:51:10'),
-(2, 'staff', 'Staff', 'Staff', '2022-01-06 08:51:21', '2022-01-06 08:51:21');
+(1, 'admin', 'Admin', 'Admin', '2022-01-24 07:34:23', '2022-01-24 07:34:23'),
+(2, 'staff', 'Staff', 'Staff', '2022-01-24 07:34:24', '2022-01-24 07:34:24');
 
 -- --------------------------------------------------------
 
@@ -294,12 +273,8 @@ CREATE TABLE `role_user` (
 --
 
 INSERT INTO `role_user` (`role_id`, `user_id`, `user_type`) VALUES
-(1, 2, 'App\\Models\\User'),
-(2, 3, 'App\\Models\\User'),
-(1, 4, 'App\\Models\\User'),
-(1, 5, 'App\\Models\\User'),
-(1, 7, 'App\\Models\\User'),
-(1, 8, 'App\\Models\\User');
+(1, 1, 'App\\Models\\User'),
+(1, 2, 'App\\Models\\User');
 
 -- --------------------------------------------------------
 
@@ -321,7 +296,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('EFwRMPgsEh6te2aimcYw1FsuQOuy2svI5xre0taH', 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiWTIzZmpQRHBLOHJpWDlUNUhINElPeDF3eHlleVpHa3dzZGhQR0w5QiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzM6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9BZG1pbi90cmFjayI7fXM6MzoidXJsIjthOjA6e31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToyO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkVzRjNzhHR3FoUFhMeFpIUTJMWm51T0cuN1R0RGY0SllEMnVmQUMvTmxjUjdrcTFaajJ3eXkiO30=', 1642631460);
+('JapwRSy9tDWwtOJXoCqQ0XrsQncyFEtT9ddzFdnQ', 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoiRzQzUGU0eVZGOWRyRWh0c1RMejRGNVUyRkpBdXpDdmlrNDZha2FDMyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzg6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9BZG1pbi9zdGFmZl9saXN0Ijt9czozOiJ1cmwiO2E6MDp7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjI7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjA6IiQyeSQxMCR1aWdMdWF5aWJQQ1g1WHFZd0swd0UuWlROcHp6SGVQQnlOQzNPNXFqODlaVkhGYmhUZGQzTyI7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkdWlnTHVheWliUENYNVhxWXdLMHdFLlpUTnB6ekhlUEJ5TkMzTzVxajg5WlZIRmJoVGRkM08iO30=', 1643027338);
 
 -- --------------------------------------------------------
 
@@ -333,8 +308,7 @@ CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `type` enum('1','2') COLLATE utf8mb4_unicode_ci NOT NULL,
-  `branch_id` int(11) NOT NULL DEFAULT 0,
+  `branch_id` int(11) NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `two_factor_secret` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -350,13 +324,9 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `type`, `branch_id`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `remember_token`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`) VALUES
-(2, 'Mayamiko', 'maya@gmail.com', '1', 0, NULL, '$2y$10$W4c78GGqhPXLxZHQ2LZnuOG.7TtDf4JYD2ufAC/NlcR7kq1Zj2wyy', NULL, NULL, NULL, NULL, NULL, '2022-01-06 09:16:43', '2022-01-19 20:19:55'),
-(3, 'Chigonjetso', 'chigo@gmail.com', '1', 0, NULL, '$2y$10$OU3cF5cpQ2gxABi/jSxmmO6ZRsT8N326H5kG1dM8QZajb7er1L2EC', NULL, NULL, NULL, NULL, NULL, '2022-01-06 09:51:23', '2022-01-06 09:51:23'),
-(4, 'George Chatama', 'chatamageorge@gmail.com', '1', 0, NULL, '$2y$10$.h8HOxWJM62fbfT0DaGOD.VnNroyo7.psLeXGbg0qky8p67PDrAWi', NULL, NULL, NULL, NULL, NULL, '2022-01-06 11:14:17', '2022-01-06 11:14:17'),
-(5, 'Chigwenembe', 'Chigwe@gmail.com', '1', 0, NULL, '$2y$10$NPrWLBpPLJc6pv34ku/pQelOUgk/ZnOavW/3H20BZo35cTz1Ml6KC', NULL, NULL, NULL, NULL, NULL, '2022-01-06 13:58:43', '2022-01-06 13:58:43'),
-(7, 'Wina Wina', 'wina@gmail.com', '1', 0, NULL, '$2y$10$edmbGGF83J82HmrX8.Njk.7flTQgGdCwcRK8kRAVFATF5/DtJQxeC', NULL, NULL, NULL, NULL, NULL, '2022-01-18 08:13:53', '2022-01-18 08:13:53'),
-(8, 'Naomi Nyama', 'nyamanaomi38@gmail.com', '1', 0, NULL, '$2y$10$CVTx9kC/W17fItvY8UaGDuSwKBpDapls3vP2aXod.YtlPnHw2AAEi', NULL, NULL, NULL, NULL, NULL, '2022-01-18 08:36:06', '2022-01-18 08:36:06');
+INSERT INTO `users` (`id`, `name`, `email`, `branch_id`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `remember_token`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`) VALUES
+(1, 'Mayamiko', 'maya@gmail.com', 1, NULL, '$2y$10$J0ylNAtYRztqjxXugpFKtO7H2O39Y5Wfl7CNcmvagJGAP8SuWTFJW', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 'Faith Kassim', 'faith@gmail.com', 1, NULL, '$2y$10$uigLuayibPCX5XqYwK0wE.ZTNpzzHePByNC3O5qj89ZVHFbhTdd3O', NULL, NULL, NULL, NULL, NULL, '2022-01-24 10:27:14', '2022-01-24 10:27:14');
 
 --
 -- Indexes for dumped tables
@@ -386,13 +356,16 @@ ALTER TABLE `migrations`
 --
 ALTER TABLE `parcels`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `parcels_referenceno_unique` (`referenceno`);
+  ADD UNIQUE KEY `parcels_referenceno_unique` (`referenceno`),
+  ADD KEY `fk_branches_parcel_idtx` (`branch_id_t`),
+  ADD KEY `fk_branches_parcel_idfx` (`branch_id_f`);
 
 --
 -- Indexes for table `parceltracks`
 --
 ALTER TABLE `parceltracks`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_parcels_parcel_idx` (`parcel_id`);
 
 --
 -- Indexes for table `password_resets`
@@ -456,7 +429,8 @@ ALTER TABLE `sessions`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `users_email_unique` (`email`);
+  ADD UNIQUE KEY `users_email_unique` (`email`),
+  ADD KEY `fk_branches_branch_idx` (`branch_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -466,7 +440,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `branches`
 --
 ALTER TABLE `branches`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -484,13 +458,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `parcels`
 --
 ALTER TABLE `parcels`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `parceltracks`
 --
 ALTER TABLE `parceltracks`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `permissions`
@@ -514,7 +488,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
