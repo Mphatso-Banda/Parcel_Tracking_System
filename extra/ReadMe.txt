@@ -8,6 +8,8 @@
 
 *If you run migrations you can create a user at the PHP My Admin dashboard*
 
+NOTE: after migration run the 'php artisan db:seed' command
+
 
 1. When the program successfully runs a website with a tracking home page will appear. Customers will be able to track information about their parcle
    here by entering their tracking number.
