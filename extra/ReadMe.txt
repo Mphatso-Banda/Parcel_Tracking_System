@@ -2,11 +2,10 @@
 
 *This program uses Laravel's Jetstream and Laracast*
 
-*To run this create a database name: 'parceltracking' and run migration files or import the given database:'parceltracking.sql'*
+*To run this create a database name: 'parceltracking' and run migration files or import the given database file:'parceltracking.sql'*
 
 *If you have imported the given database file, login with email:maya@gmail.com and password: Parcel@group9*
 
-*If you run migrations you can create a user at the PHP My Admin dashboard*
 
 NOTE: after migration run the 'php artisan db:seed' command
 
@@ -20,9 +19,7 @@ NOTE: after migration run the 'php artisan db:seed' command
 
 4. You will find a navigation menu on the left side where you can manage branches, staff members, Parcels, Track Parcels and create reports on parcels
 
-5. Enjoy Using the system to manage and truck customers.
+5. Enjoy Using the system to manage and track parcels.
 
-*In case you are having problems with authentication go to /register to get yourself registered for the system*
-*This route has deliberately been left unprotected for the sake of testing*
 
 *GROUP 9*
